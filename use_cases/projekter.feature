@@ -9,4 +9,3 @@ Feature: Projekter
 		When Softwarehuset A/S vælger "Projekter"
 		And Softwarehuset A/S redigerer et projekt
 		Then skal Softwarehuset A/S kunne ændre navnet på projektet
-
