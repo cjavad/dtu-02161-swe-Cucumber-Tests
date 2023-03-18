@@ -1,5 +1,4 @@
 Feature: Ændre anførte medarbejder for aktivitet
-
 	Scenario: Medarbejder prover at tilføj medarbejder til aktivitet
 		Given en medarbejder er logget ind
 		And der er en aktivitet i en projekt
