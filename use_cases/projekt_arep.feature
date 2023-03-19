@@ -5,7 +5,7 @@ Feature: Opret rapporter over aktiviteters timeforbrug
   Background:
     Given medarbejderen er logget ind som "Gubs"
     And der findes et projekt med ID "2022-01"
-    And medarbejderen er projektleder for projektet med ID "2022-01"
+    And medarbejderen med ID "Gubs" er projektleder for projektet med ID "2022-01"
 
   Scenario: Generere rapport hvor en aktivitet er over tid
     Given at der findes en aktivitet med start tidspunkt i "01-2022" og slut tidspunkt "02-2022" ved navn "Feeding gibbon monkeys" og budgetteret tid på 10 timer
