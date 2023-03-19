@@ -25,7 +25,14 @@ Feature: Aktivitet Levetid
 		And der er et projekt uden nogen aktiviteter
 		And medarbejderen er projektlederen
 		When medarbejderen prøver at oprette en aktivitet "Aktivitet 1" med startsugen 19 og slutugen 20
-		Then er der en aktivitet i projektet
+		Then er der en aktivitet i projektet "Aktivitet 1"
+
+	Scenario: Projektleder prøver at oprette en delvis udfyldt aktivitet
+		Given en medarbejder er logget ind
+		And der er et projekt uden nogen aktiviteter
+		And medarbejderen er projektlederen
+		When medarbejderen prøver at oprette en aktivitet "Aktivitet 1"
+		Then er der en aktivitet i projektet "Aktivitet 1"
 		
 	Scenario: Medarbejder prøver at slette en projekt (med projektleder)
 		Given en medarbejder er logget ind
