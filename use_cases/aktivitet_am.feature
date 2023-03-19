@@ -1,7 +1,8 @@
 Feature: Ændre anførte medarbejder for aktivitet
 	Scenario: Medarbejder prover at tilføj medarbejder til aktivitet
 		Given en medarbejder er logget ind
-		And der er en aktivitet i en projekt
+		And en medarbejder er en del af et projekt med ID "2022-01"
+		And der er en aktivitet med start tidspunkt i uge 1 og slutdato i uge 2 med 10 budgettimer og navn "Test" i projektet med ID "2022-01"
 		When medarbejderen prover at tilføj en nye medarbejder til aktivitetet
 		Then er den nye medarbejder ikke anførte til aktivitetet 
 		
