@@ -30,11 +30,11 @@ Feature: Ændrer start/slut tidspunkter af en aktivitet
 
 	Scenario: Medarbejder prøver at tilføje start/slut tidspunkt
 		Given en medarbejder er logget ind som "cdcd"
-		When medarbejderen prøver at ændrer "Aktivtets 2" start tidspunktet til 14
-		Then medarbejderen får fejlbeskeden "Skal være projektleder til ændre start tidspunkt"
+		When medarbejderen prøver at ændrer "Aktivtets 2" start tidspunktet til "14-2022"
+		Then medarbejderen får fejlbeskeden "Skal være projektleder for at ændre start tidspunkt"
 		And aktiviteten "Aktivitet 2" har stadig intet start tidspunkt
-		When medarbejderen prøver at ændrer "Aktivtets 2" slut tidspunktet til 18
-		Then medarbejderen får fejlbeskeden "Skal være projektleder til ændre slut tidspunkt"
+		When medarbejderen prøver at ændrer "Aktivtets 2" slut tidspunktet til "18-2022"
+		Then medarbejderen får fejlbeskeden "Skal være projektleder for at ændre slut tidspunkt"
 		And aktiviteten "Aktivitet 2" har stadig intet slut tidspunkt
 
 	Scenario: Medarbejder prøver at slet start/slut tidspunkt
@@ -48,10 +48,10 @@ Feature: Ændrer start/slut tidspunkter af en aktivitet
 
 	Scenario: Projektlederen prøver at tilføje start/slut tidspunkt
 		Given en medarbejder er logget ind som "abcd"
-		When medarbejderen prøver at ændrer "Aktivtets 2" start tidspunktet til 14
-		Then aktiviteten "Aktivitet 2" har start tidspunktet 14
-		When medarbejderen prøver at ændrer "Aktivtets 2" slut tidspunktet til 18
-		Then aktiviteten "Aktivitet 2" har slut tidspunktet 18
+		When medarbejderen prøver at ændrer "Aktivtets 2" start tidspunktet til "14-2022"
+		Then aktiviteten "Aktivitet 2" har start tidspunktet "14-2022"
+		When medarbejderen prøver at ændrer "Aktivtets 2" slut tidspunktet til "18-2022"
+		Then aktiviteten "Aktivitet 2" har slut tidspunktet "18-2022"
 
 	Scenario: Projektlederen prøver at slet start/slut tidspunkt
 		Given en medarbejder er logget ind som "abcd"
