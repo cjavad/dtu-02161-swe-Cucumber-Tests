@@ -30,5 +30,3 @@ Feature: lav_aktivitet
 		Given en medarbejder er logget ind som "aaaa" på projektet "2022-01"
 		When medarbejderen prøver at oprette en aktivitet "Aktivitet 1"
 		Then er der en aktivitet i projektet "Aktivitet 1"
-
-	Scenario:

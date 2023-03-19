@@ -37,4 +37,4 @@ Feature: Ændrer tidsbudget af en aktivitet
 	Scenario: Projektleder prover at slet start tidspunkt
 		Given en medarbejder er logget ind som "abcd"
 		When medarbejderen prover at slette tidsbudgeten fra "Aktivitet 1"
-		Then er der ikke en tidsbudget på "Aktivtet 1"
+		Then er der ikke en tidsbudget på "Aktivitet 1"

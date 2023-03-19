@@ -2,14 +2,14 @@ Feature: Ændre anførte medarbejder for aktivitet
 	Background:
 		Given der er projekt med ID "2022-01"
 		And der er en aktivitet med navn "Aktivitet 1" i projekt med ID "2022-01"
-		And der eksistere medarbejder "abcd" #Er medlem af projektet og har en aktivitet
+		And der eksistere medarbejder "abcd"
 		And medarbejder "abcd" er en medlem af projekt med ID "2022-01"
 		And medarbejder "abcd" er anførte til aktivitet med navn "Aktivitet 1"
-		And der eksistere medarbejder "cdef" #Er bare medlem af projektet
+		And der eksistere medarbejder "cdef"
 		And medarbejder "cdef" er en medlem af projekt med ID "2022-01"
-		And der eksistere medarbejder "defg" #Er ikke medlem af projektet
+		And der eksistere medarbejder "defg"
 		And der eksistere en medarbejder "aaaa" som er medlem af projektet "2022-01"
-		And der eksistere en medarbejder "bbbb" som er projektleder af projektet "2022-01" 
+		And der eksistere en medarbejder "bbbb" som er projektleder af projektet "2022-01"
 
 	Scenario: Medarbejder prover at anføre/fjerne medarbejder til aktivitet
 		Given en medarbejder er logget ind som "aaaa"
