@@ -1,36 +1,43 @@
 Feature: Aktivitets livstid
-  Scenario: Medarbejderen er logget ind som projektleder
-    Given Projektlederen er tildelt projektet
-    When Projektlederen opretter en aktivitet
-    And Medarbejderen vælger et tidsbudget
-    And Medarbejderen vælger en startdato
-    And Medarbejderen vælger en slutdato
-    Then Kan projektlederen oprette en aktivitet
-    When Projektlederen fjerner en aktivitet
-    Then Kan projektlederen fjerne en aktivitet
 
-  Scenario: Medarbejderen er logget ind som medarbejder
-    Given Medarbejderen er tildelt et projekt og projektet har en projektleder
-    When Medarbejderen opretter en aktivitet
-    Then Kan medarbejderen ikke oprette en aktivitet
-    When Medarbejderen fjerner en aktivitet
-    Then Kan medarbejderen ikke fjerne en aktivitet
+	Scenario: Medarbejder prover at opret en aktivitet (med projektleder)
+		Given en medarbejder er logget ind
+		And der er et projekt unden nogen aktiviteter
+		And projekten har en projektleder
+		When medarbejderen prover at opret en aktivitet
+		Then er der ingen aktiviteter i projektet
 
-  Scenario: Medarbejderen er logget ind som medarbejder
-    Given Medarbejderen er tildelt et projekt og projektet har ikke en projektleder
-    When Medarbejderen opretter en aktivitet
-    And Medarbejderen vælger et tidsbudget
-    And Medarbejderen vælger en startdato
-    And Medarbejderen vælger en slutdato
-    Then Kan medarbejderen oprette en aktivitet
-    When Medarbejderen fjerner en aktivitet
-    Then Kan medarbejderen fjerne en aktivitet
+	Scenario: Medarbejder prover at opret en aktivitet (uden projektleder)
+		Given en medarbejder er logget ind
+		And der er et projekt unden nogen aktiviteter
+		And projekten har ikke en projektleder
+		When medarbejderen prover at opret en aktivitet
+		Then er der en aktivitet i projektet
 
-  Scenario: Medarbejderen er logget ind
-    Given Medarbejderen er tildelt et projekt som har en projektleder
-    Then Medarbejderen kan se aktiviteterne
-    And Medarbejderen kan tilføje en fast aktivitet
-    And Medarbejderen vælger en startdato
-    And Medarbejderen vælger en slutdato
-    When Medarbejderen fjerne en fast aktivitet
-    Then Kan medarbejderen fjerne en fast aktivitet
+	Scenario: Projektleder prover at opret en aktivitet
+		Given en medarbejder er logget ind
+		And der er et projekt unden nogen aktiviteter
+		And medarbejderen er projektlederen
+		When medarbejderen prover at opret en aktivitet
+		Then er der en aktivitet i projektet
+		
+	Scenario: Medarbejder prover at slet en projekt (med projektleder)
+		Given en medarbejder er logget ind
+		And der er et projekt med en aktivitet
+		And projekten har en projektleder
+		When medarbejderen prover at slet aktivitetet
+		Then er der en aktivitet i projektet
+		
+	Scenario: Medarbejder prover at slet en projekt (uden projektleder)
+		Given en medarbejder er logget ind
+		And der er et projekt med en aktivitet
+		And projekten har ikke en projektleder
+		When medarbejderen prover at slet aktivitetet
+		Then er der ingen aktiviteter i projektet
+		
+	Scenario: Projektleder prover at slet en aktivitet
+		Given en medarbejder er logget ind
+		And der er et projekt med en aktivitet
+		And medarbejderen er projektlederen
+		When medarbejderen prover at slet aktivitetet
+		Then er der ingen aktiviteter i projektet
