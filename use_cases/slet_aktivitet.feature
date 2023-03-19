@@ -4,13 +4,13 @@ Feature: slet_aktivitet
 
   Background:
     Given brugeren "aaaa" findes
-    Given brugeren "bbbb" findes
-    Given Medarbejderen er logget ind som Softwarehuset A/S
-    Then Medarbejderen opretter et projekt "2022-01"
+    And brugeren "bbbb" findes
+    And Medarbejderen er logget ind som Softwarehuset A/S
+    And Medarbejderen opretter et projekt "2022-01"
     And Medarbejderen tilknytter brugeren "aaaa" som projektleder til "2022-01"
-    And Medarbejderen opretter en aktivitet til projektet "Aktivitet 1" med startsugen 19 og slutugen 20
+    And Medarbejderen opretter en aktivitet til projektet "Aktivitet 1" med start tidspunktet "19-2022" og slut tidspunktet "20-2022"
     And Medarbejderen opretter et projekt "2022-01" (Uden projektleder)
-    And Medarbejderen opretter en aktivitet til projektet "Aktivitet 1" med startsugen 19 og slutugen 20
+    And Medarbejderen opretter en aktivitet til projektet "Aktivitet 1" med start tidspunktet "19-2022" og  slut tidspunktet "20-2022"
 
   Scenario: Medarbejder prøver at slette en projekt (med projektleder)
     Given Medarbejderen er logget ind som "bbbb" på projektet "2022-01"

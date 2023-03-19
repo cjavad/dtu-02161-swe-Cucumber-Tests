@@ -17,11 +17,11 @@ Feature: Opret rapporter over aktiviteters timeforbrug
     And en anden medarbejder med ID "Gibs" har anført 9 timer på aktiviteten
     Then så er aktivitetens overtid -1 time
 
-    Scenario: Generere rapport hvor aktiviteten ikke har budgetteret tid
-      Given at der findes en aktivitet med start tidspunkt i "01-2022" og slut tidspunkt "02-2022" ved navn "Travelling in an infinite instantaneous time loop"
-      And en anden medarbejder med ID "Gibs" har anført 9 timer på aktiviteten
-      Then så er aktivitetens overtid en null pointer
+  Scenario: Generere rapport hvor aktiviteten ikke har budgetteret tid
+    Given at der findes en aktivitet med start tidspunkt i "01-2022" og slut tidspunkt "02-2022" ved navn "Travelling in an infinite instantaneous time loop"
+    And en anden medarbejder med ID "Gibs" har anført 9 timer på aktiviteten
+    Then så er aktivitetens overtid en null pointer
 
-      Scenario: Generere rapport hvor aktiviteten ikke har nogen anførte timer
-        Given at der findes en aktivitet med start tidspunkt i "01-2022" og slut tidspunkt "02-2022" ved navn "Chill at Q8" og budgetteret tid på 10 timer
-        Then så er aktivitetens overtid lig 0
+  Scenario: Generere rapport hvor aktiviteten ikke har nogen anførte timer
+    Given at der findes en aktivitet med start tidspunkt i "01-2022" og slut tidspunkt "02-2022" ved navn "Chill at Q8" og budgetteret tid på 10 timer
+    Then så er aktivitetens overtid lig 0
