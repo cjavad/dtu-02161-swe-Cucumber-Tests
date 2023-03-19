@@ -13,7 +13,7 @@ Feature: Aktive og inaktive projekter
 		And brugeren opretter en aktivitet "Aktivitet Overskredet" med start tidspunktet "16-2022" og slut tidspunktet "22-2023"
 		And brugeren opretter et projekt "2022-02"
 		And brugeren opretter en aktivitet "Aktivitet Igangværende" med start tidspunktet "16-2023" og slut tidspunktet "52-2023"
-		And brugeren tilknytter "aaaa" som projektleder til "2022-01"
+		And brugeren tilknytter "aaaa" som projektleder til "2022-02"
 
 	Scenario: Se projekter som projektleder
 		Given medarbejderen er logget ind som "aaaa"
@@ -46,3 +46,10 @@ Feature: Aktive og inaktive projekter
 		Given medarbejderen er logget ind som "aaaa"
 		When medarbejderen vælger "Projekter"
 		Then skal medarbejderen se 1 projekt "2022-02" med navnet "Projekt 2 - Næste uge"
+		
+	Scenario: Få advarsel når der er ikke nogen i et projekt
+		Given medarbejderen er logget ind som Softwarehuset A/S
+		And medarbejderen har fjernede "aaaa" fra projektet "2022-02"
+		When medarbejderen vælger "Projekter" 
+		Then skal medarbejderen se 1 projekt "2022-02"
+		And få en besked "Project 2022-02 mangler medarbejder"
