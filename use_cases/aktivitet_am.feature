@@ -1,27 +1,32 @@
 Feature: Ændre anførte medarbejder for aktivitet
-	Scenario: Medarbejder prover at tilføj medarbejder til aktivitet
-		Given en medarbejder er logget ind
-		And en medarbejder er en del af et projekt med ID "2022-01"
-		And der er en aktivitet med start tidspunkt i uge 1 og slutdato i uge 2 med 10 budgettimer og navn "Test" i projektet med ID "2022-01"
-		When medarbejderen prover at tilføj en nye medarbejder til aktivitetet
-		Then er den nye medarbejder ikke anførte til aktivitetet 
+	Background:
+		Given der er projekt med ID "2022-01"
+		And der er en aktivitet med ID 1 i projekt med ID "2022-01"
+		And der eksistere medarbejder "abcd"
+		And medarbejder "abcd" er en medlem af projekt med ID "2022-01"
+		And medarbejder "abcd" er anførte til aktivitet med ID 1
+		And der eksistere medarbejder "cdef"
+		And medarbejder "cdef" er en medlem af projekt med ID "2022-01"
+		And der eksistere medarbejder "defg"
 		
-	Scenario: Projektleder prover at tilføj medarbejder til aktivitet
+	Scenario: Medarbejder prover at tilføj/fjern medarbejder til aktivitet
 		Given en medarbejder er logget ind
-		And der er en aktivitet i en projekt
-		And medarbejderen er projektlederen af projektet
-		When medarbejderen prover at tilføj en nye medarbejder til aktivitetet
-		Then er den nye medarbejder anførte til aktivitetet
-	
-	Scenario: Medarbejder prover at fjern medarbejder fra aktivitet
+		And medarbejderen er en del af projektet med ID "2022-01"
+		When medarbejderen prover at tilføj medarbejderen "cdef" til aktivitetet med ID 1
+		Then kommer der fejlbesked "Skal være projektleder til tilføj medarbejder"
+		When medarbejderen prover at tilføj medarbejderen "defg" til aktivitetet med ID 1
+		Then kommer der fejlbesked "Skal være projektleder til tilføj medarbejder"
+		When medarbejderen prover at fjen medarbejderen "cdef" fra aktivitetet med ID 1
+		Then kommer der fejlbesked "Skal være projektleder til fjern medarbejder"
+		
+	Scenario: Projektleder prover at tilføj/fjern medarbejder til aktivitet
 		Given en medarbejder er logget ind
-		And der er en aktivitet i en projekt
-		When medarbejderen prover at fjern en anførte medarbejder fra aktivitetet
-		Then er den anførte medarbejder stadig anført
-	
-	Scenario: Projektleder prover at fjern medarbejder fra aktivitet
-		Given en medarbejder er logget ind
-		And der er en aktivitet i en projekt
-		And medarbejderen er projektlederen af projektet
-		When medarbejderen prover at fjern en anførte medarbejder fra aktivitetet
-		Then er den anførte medarbejder ikke længer ænført 
+		And medarbejderen er projektlederen af projektet med id "2022-01"
+		When medarbejderen prover at tilføj medarbejderen "cdef" til aktivitetet med ID 1
+		Then er medarbejder "cdef" anførte til aktivitet med ID 1
+		When medarbejderen prover at tilføj medarbejderen "defg" til aktivitetet med ID 1
+		Then kommer der fejlbesked "Kan ikke tilføj medarbejder der er ikke en del af projektet"
+		When medarbejderen prover at fjern medarbejderen "abcd" fra aktivitet med ID 1
+		Then er medarbejderen "abcd" ikke længer anførte til aktivitet med ID 1
+		When medarbejderen prover at fjern medarbejderen "defg" fra aktivitet med ID 1
+		Then kommer der fjelbesked "Kan ikke fjern medarbejder der er ikke anførte"
