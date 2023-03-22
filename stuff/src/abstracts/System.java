@@ -1,6 +1,10 @@
 package abstracts;
 
-abstract class System {
+import java.util.List;
+
+public class System {
+
+    public UgeDato nuværrendeDato;
     public Medarbejder aktiveMedarbejder;
     public Projekt aktiveProjekt;
 

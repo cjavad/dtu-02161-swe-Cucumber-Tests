@@ -1,6 +1,6 @@
 package abstracts;
 
-abstract class Medarbejder {
+class Medarbejder {
     public String initials;
 
 

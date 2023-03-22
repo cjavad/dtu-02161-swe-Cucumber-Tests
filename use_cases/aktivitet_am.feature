@@ -11,22 +11,22 @@ Feature: Ændre anførte medarbejder for aktivitet
 		And der eksistere en medarbejder "aaaa" som er medlem af projektet "2022-01"
 		And der eksistere en medarbejder "bbbb" som er projektleder af projektet "2022-01"
 
-	Scenario: Medarbejder prover at anføre/fjerne medarbejder til aktivitet
+	Scenario: Medarbejder prøver at anføre/fjerne medarbejder til aktivitet
 		Given en medarbejder er logget ind som "aaaa"
-		When medarbejderen prover at tilføj medarbejderen "cdef" til aktivitetet med navn "Aktivitet 1"
+		When medarbejderen prøver at tilføj medarbejderen "cdef" til aktivitetet med navn "Aktivitet 1"
 		Then kommer der fejlbesked "Skal være projektleder for at anføre medarbejder til aktivitet"
-		When medarbejderen prover at tilføj medarbejderen "defg" til aktivitetet med navn "Aktivitet 1"
+		When medarbejderen prøver at tilføj medarbejderen "defg" til aktivitetet med navn "Aktivitet 1"
 		Then kommer der fejlbesked "Skal være projektleder for at anføre medarbejder til aktivitet"
-		When medarbejderen prover at fjen medarbejderen "cdef" fra aktivitetet med navn "Aktivitet 1"
+		When medarbejderen prøver at fjerne medarbejderen "cdef" fra aktivitetet med navn "Aktivitet 1"
 		Then kommer der fejlbesked "Skal være projektleder for at fjerne medarbejder fra aktivitet"
 		
-	Scenario: Projektleder prover at anføre/fjerne medarbejder til aktivitet
+	Scenario: Projektleder prøver at anføre/fjerne medarbejder til aktivitet
 		Given en medarbejder er logget ind som "bbbb"
-		When medarbejderen prover at anføre medarbejderen "cdef" til aktivitetet med navn "Aktivitet 1"
+		When medarbejderen prøver at anføre medarbejderen "cdef" til aktivitetet med navn "Aktivitet 1"
 		Then er medarbejder "cdef" anførte til aktivitet med navn "Aktivitet 1"
-		When medarbejderen prover at anføre medarbejderen "defg" til aktiviteten med navn "Aktivitet 1"
+		When medarbejderen prøver at anføre medarbejderen "defg" til aktiviteten med navn "Aktivitet 1"
 		Then kommer der fejlbesked "Kan ikke tilføj medarbejder der er ikke en del af projektet"
-		When medarbejderen prover at fjern medarbejderen "abcd" fra aktivitet med navn "Aktivitet 1"
+		When medarbejderen prøver at fjerne medarbejderen "abcd" fra aktivitet med navn "Aktivitet 1"
 		Then er medarbejderen "abcd" ikke længer anførte til aktivitet med navn "Aktivitet 1"
-		When medarbejderen prover at fjern medarbejderen "defg" fra aktivitet med navn "Aktivitet 1"
-		Then kommer der fjelbesked "Kan ikke fjern medarbejder der er ikke anførte"
+		When medarbejderen prøver at fjerne medarbejderen "defg" fra aktivitet med navn "Aktivitet 1"
+		Then kommer der fjelbesked "Kan ikke fjerne medarbejder der er ikke anførte"

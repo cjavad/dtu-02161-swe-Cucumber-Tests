@@ -1,4 +1,5 @@
 package abstracts;
+import java.util.List;
 
 abstract class Aktivitet {
     public String navn;
@@ -9,4 +10,5 @@ abstract class Aktivitet {
     public List<AktivitetLog> aktivitetLog;
 
     public int budgetteretTid = 0;
+    public int overtid = 0;
 }

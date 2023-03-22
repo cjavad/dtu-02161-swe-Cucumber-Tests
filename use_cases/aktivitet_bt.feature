@@ -16,7 +16,7 @@ Feature: Ændrer tidsbudget af en aktivitet
 		Given en medarbejder er logget ind som "abcd"
 		When medarbejderen prover at ændrer "Aktivitet 1" tidsbudgettet til 140 timer
 		Then tidsbudgettet på "Aktivitet 1" er 140 timer
-		
+
 	Scenario: Medarbejder prover at tilføj en tidsbudget 
 		Given en medarbejder er logget ind som "cdcd"
 		When medarbejderen prover at ændrer "Aktivitet 2" tidsbudgettet til 140 timer

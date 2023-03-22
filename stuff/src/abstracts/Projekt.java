@@ -1,6 +1,8 @@
 package abstracts;
 
-abstract class Projekt {
+import java.util.List;
+
+public class Projekt {
     public int id;
     public int year;
     public String navn;
@@ -9,7 +11,8 @@ abstract class Projekt {
     public List<Aktivitet> aktiviteter;
     public List<Medarbejder> medarbejdere;
 
-    public ID() {
-        return this.year + '-' + String.format("%02d", this.id);
+
+    public String ID() {
+        return this.year + "-" + String.format("%02d", this.id);
     }
 }
