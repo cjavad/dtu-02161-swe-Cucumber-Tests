@@ -14,7 +14,6 @@ Feature: ændre_tilknyttet_medarbejder_projekt
     Given medarbejderen er logget ind som Systemhuset A/S på projektet "Projekt 1"
     When medarbejderen tilknytter
 
-
   Scenario:
     Given medarbejderen er logget ind som "aaaa"
 
